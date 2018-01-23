@@ -1,0 +1,22 @@
+<button ng-click="propertyName = null; reverse = false">Reset to unsorted</button>
+<table >
+    <tr>
+      <th>
+        <button ng-click="sortBy('name')">Name</button>
+        <span ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+      </th>
+      <th>
+        <button ng-click="sortBy('category')">Category</button>
+        <span ng-show="propertyName === 'category'" ng-class="{reverse: reverse}"></span>
+      </th>
+      <th>
+        <button ng-click="sortBy('amount')">Amount</button>
+        <span ng-show="propertyName === 'amount'" ng-class="{reverse: reverse}"></span>
+      </th>
+    </tr>
+    <tr ng-repeat="item in data | orderBy:propertyName:reverse">
+      <td>{{item.name}}</td>
+      <td>{{item.category}}</td>
+      <td>{{item.amount}}</td>
+    </tr>
+  </table>
